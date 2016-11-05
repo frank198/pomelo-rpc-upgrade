@@ -1,8 +1,8 @@
 var net = require('net');
 var EventEmitter = require('events').EventEmitter;
 var util = require('util');
-var utils = require('../../../lib/util/utils');
-var Composer = require('stream-pkg');
+var utils = require('../../../lib/util/Utils');
+var Composer = require('../../../lib/util/Composer');
 
 var Client = function() {
   EventEmitter.call(this);
