@@ -4,49 +4,54 @@ var util = require('util');
 var utils = require('../../../lib/util/Utils');
 var Composer = require('../../../lib/util/Composer');
 
-var Client = function() {
-  EventEmitter.call(this);
-  this.requests = {};
-  this.curId = 0;
-  this.composer = new Composer();
-  this.socket = null;
-};
-util.inherits(Client, EventEmitter);
 
-var pro = Client.prototype;
-
-pro.connect = function(host, port, cb) {
-  this.socket = net.connect({port: port, host: host}, function() {
-    utils.invokeCallback(cb);
-  });
-  console.log('socket: %j', !!this.socket);
-  var self = this;
-  this.socket.on('data', function(data) {
-    self.composer.feed(data);
-  });
-
-  this.composer.on('data', function(data) {
-    var pkg = JSON.parse(data.toString());
-    var cb = self.requests[pkg.id];
-    delete self.requests[pkg.id];
-
-    if(!cb) {
-      return;
+class Client extends EventEmitter
+{
+    constructor()
+    {
+        super();
+        this.requests = {};
+        this.curId = 0;
+        this.composer = new Composer();
+        this.socket = null;
     }
 
-    cb.apply(null, pkg.resp);
-  });
-};
+    connect(host, port, cb)
+    {
+        this.socket = net.connect({port: port, host: host}, function() {
+            utils.InvokeCallback(cb);
+        });
+        console.log('socket: %j', !!this.socket);
+        var self = this;
+        this.socket.on('data', function(data) {
+            self.composer.feed(data);
+        });
 
-pro.send = function(msg, cb) {
-  var id = this.curId++;
-  this.requests[id] = cb;
-  this.socket.write(this.composer.compose(JSON.stringify({id: id, msg: msg})));
-};
+        this.composer.on('data', function(data) {
+            var pkg = JSON.parse(data.toString());
+            var cb = self.requests[pkg.id];
+            delete self.requests[pkg.id];
 
-pro.close = function() {
-  this.socket.end();
-};
+            if(!cb) {
+                return;
+            }
+
+            cb.apply(null, pkg.resp);
+        });
+    }
+
+    send(msg, cb)
+    {
+        var id = this.curId++;
+        this.requests[id] = cb;
+        this.socket.write(this.composer.compose(JSON.stringify({id: id, msg: msg})));
+    };
+
+    close()
+    {
+        this.socket.end();
+    };
+}
 
 module.exports.create = function(opts) {
   return new Client();
