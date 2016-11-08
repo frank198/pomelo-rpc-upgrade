@@ -3,12 +3,11 @@
 	"version": "1.0.2",
 	"dependencies": {
 		"socket.io": "0.9.16",
-		"crc": "0.2.0",
+		"crc": "*",
 		"socket.io-client": "0.9.16",
 		"pomelo-loader-upgrade": "*",
 		"pomelo-logger": "0.1.7",
-		"node-uuid": "1.4.0",
-		"async": "0.2.10"
+		"node-uuid": "*"
 	},
 	"devDependencies": {
 		"mocha": ">=0.0.1",

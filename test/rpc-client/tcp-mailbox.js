@@ -7,8 +7,8 @@ var Tracer = require('../../lib/util/tracer');
 var WAIT_TIME = 100;
 
 var paths = [
-  {namespace: 'user', serverType: 'area', path: __dirname + '../../mock-remote/area'},
-  {namespace: 'sys', serverType: 'connector', path: __dirname + '../../mock-remote/connector'}
+  {namespace: 'user', serverType: 'area', path: __dirname + '/../mock-remote/area'},
+  {namespace: 'sys', serverType: 'connector', path: __dirname + '/../mock-remote/connector'}
 ];
 
 var port = 3333;
