@@ -154,6 +154,8 @@ describe('gateway', function() {
       gateway.start();
 
       var client = Client.create();
+
+
       client.connect('127.0.0.1', port, function() {
         client.send(msg1, function(err, result) {
           result.should.eql(value + 1);

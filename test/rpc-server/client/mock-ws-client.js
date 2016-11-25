@@ -13,8 +13,9 @@ class Client extends EventEmitter
     }
     connect(host, port, cb)
     {
-        this.socket = sioClient.connect(host + ':' + port, {'force new connection': true});
+        this.socket = sioClient.connect(host + ':' + port, {forceNew: true});
 
+        sioClient.Socket
         var self = this;
         this.socket.on('message', function(pkg) {
             var cb = self.requests[pkg.id];
@@ -27,7 +28,7 @@ class Client extends EventEmitter
             cb.apply(null, pkg.resp);
         });
 
-        this.socket.on('connect', function() {
+        this.socket.on('connection', function() {
             utils.InvokeCallback(cb);
         });
     }

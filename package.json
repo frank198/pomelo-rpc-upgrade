@@ -1,10 +1,10 @@
 {
 	"name": "pomelo-rpc-upgrade",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"dependencies": {
-		"socket.io": "0.9.16",
+		"socket.io": "*",
 		"crc": "*",
-		"socket.io-client": "0.9.16",
+		"socket.io-client": "*",
 		"pomelo-loader-upgrade": "*",
 		"pomelo-logger": "0.1.7",
 		"node-uuid": "*"
