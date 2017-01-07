@@ -1,16 +1,17 @@
 {
-	"name": "pomelo-rpc-upgrade",
-	"version": "1.0.3",
-	"dependencies": {
-		"socket.io": "1.6.0",
-		"crc": "*",
-		"socket.io-client": "1.6.0",
-		"pomelo-loader-upgrade": "*",
-		"pomelo-logger": "0.1.7",
-		"node-uuid": "*"
-	},
-	"devDependencies": {
-		"mocha": ">=0.0.1",
-		"should": ">=0.0.1"
-	}
+  "name": "pomelo-rpc-upgrade",
+  "version": "1.0.5",
+  "dependencies": {
+    "crc": "*",
+    "lodash": "*",
+    "pomelo-loader-upgrade": "*",
+    "pomelo-logger": "0.1.7",
+    "socket.io": ">=1.7.1",
+    "socket.io-client": ">=1.7.1",
+    "uuid": "^3.0.1"
+  },
+  "devDependencies": {
+    "mocha": ">=0.0.1",
+    "should": ">=0.0.1"
+  }
 }
