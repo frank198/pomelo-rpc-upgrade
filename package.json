@@ -1,6 +1,6 @@
 {
   "name": "pomelo-rpc-upgrade",
-  "version": "1.0.9",
+  "version": "1.0.10-test",
   "dependencies": {
     "crc": "*",
     "lodash": "*",
@@ -8,7 +8,9 @@
     "pomelo-logger": "0.1.7",
     "socket.io": ">=1.7.1",
     "socket.io-client": ">=1.7.1",
-    "uuid": "^3.0.1"
+    "uuid": "^3.0.1",
+    "mqtt-connection": "3.0.0",
+    "bearcat-buffer": "0.1.x"
   },
   "devDependencies": {
     "mocha": ">=0.0.1",
