@@ -1,6 +1,6 @@
 {
   "name": "pomelo-rpc-upgrade",
-  "version": "1.0.10-test",
+  "version": "1.1.1",
   "dependencies": {
     "crc": "*",
     "lodash": "*",
