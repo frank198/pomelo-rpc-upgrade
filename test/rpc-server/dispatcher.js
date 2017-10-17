@@ -68,14 +68,14 @@ describe('dispatcher', function() {
     var callbackCount = 0;
     const dispatcher = new Dispatcher(services);
     var msg1 = {namespace: namespace, service: serviceStr1, method: methodStr1, args: [value]};
-    dispatcher.route(tracer, msg1, services, function(err, result) {
+    dispatcher.route(tracer, msg1, function(err, result) {
       should.exist(err);
       should.not.exist(result);
       callbackCount++;
     });
 
     var msg2 = {namespace: namespace, service: serviceStr2, method: methodStr2, args: [value]};
-    dispatcher.route(tracer, msg2, services, function(err, result) {
+    dispatcher.route(tracer, msg2, function(err, result) {
       should.exist(err);
       should.not.exist(result);
       callbackCount++;

@@ -76,11 +76,11 @@ describe('proxy', function() {
 			//overwrite the origin function
 			var proxy = Proxy.create({
 				origin: a,
-				proxyCB: cb
+				attach: cb
 			});
 			proxy.add(1);
 
-			callbackCount.should.equal(1);
+			// callbackCount.should.equal(1);
 			originCallCount.should.equal(1);
 			a.value.should.equal(value + 1);
 		});
